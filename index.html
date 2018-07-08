@@ -1,27 +1,6 @@
 <div id="test"></div>
+<script src="functions-index.js"></script>
 <script>
-    function get(url) {
-        return new Promise(function (resolve, reject) {
-            var req = new XMLHttpRequest();
-            req.open('GET', url);
-
-            req.onload = function () {
-                if (req.status == 200) {
-                    resolve(JSON.parse(req.responseText));
-                }
-                else {
-                    reject(Error(req.statusText));
-                }
-            };
-
-            req.onerror = function () {
-                reject(Error("Network Error"));
-            };
-
-            req.send();
-        });
-    }
-
     get("https://swapi.co/api/people/1/?format=json").then(function (response) {
         console.log("Success!", response);
     }, function (error) {
