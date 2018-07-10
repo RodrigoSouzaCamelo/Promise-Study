@@ -6,4 +6,14 @@
     }, function (error) {
         console.error("Failed!", error);
     });
+
+    var data = {
+        "name": "morpheus",
+        "job": "leader"
+    };
+    post("https://reqres.in/api/users", data).then(function (response) {
+        console.log("Success!", response);
+    }, function (error) {
+        console.log("Failed!" + error);
+    });
 </script>
